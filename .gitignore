@@ -1,0 +1,5 @@
+node_modules
+# if just coverage looks dangerous
+# specify for each package
+# packages/iserror/coverage
+coverage

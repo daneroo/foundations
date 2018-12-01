@@ -1,0 +1,35 @@
+{
+  "name": "@daneroo/iserror",
+  "version": "1.0.0",
+  "description": "Detect if an argument is an Error",
+  "author": "Daniel Lauzon <daniel.lauzon@gmail.com>",
+  "homepage": "https://github.com/daneroo/foundations#readme",
+  "license": "ISC",
+  "main": "lib/iserror.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daneroo/foundations.git"
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "jest",
+    "coverage": "jest --collectCoverageFrom=lib/**.js --coverage ."
+  },
+  "bugs": {
+    "url": "https://github.com/daneroo/foundations/issues"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "standard": "^12.0.1"
+  }
+}
