@@ -1,6 +1,6 @@
 {
   "name": "@daneroo/logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Group of common patterns usefule with winston/morgan logging",
   "author": "Daniel Lauzon <daniel.lauzon@gmail.com>",
   "homepage": "https://github.com/daneroo/foundations#readme",
@@ -35,8 +35,8 @@
     "morgan-json": "^1.1.0",
     "standard": "^12.0.1",
     "winston": "^3.1.0"
-	},
-	"peerDependencies": {
+  },
+  "peerDependencies": {
     "winston": ">= 3.1.0 < 4"
   },
   "standard": {
