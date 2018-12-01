@@ -32,6 +32,10 @@ lerna bootstrap --hoist
 lerna run test
 lerna run test --stream  # get the verbose output
 
+lerna publish
+lerna version # interactive
+lerna minor # [major | minor | patch | premajor | preminor | prepatch | prerelease]
+
 lerna clean --yes # rm node_modules
 ```
 
