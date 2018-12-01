@@ -56,7 +56,7 @@ lerna add standard --dev
 
 ```bash
 lerna create <name> [loc]
-npx lerna create @daneroo/iserror iserror
+npx lerna create @daneroo/error error
 ```
 
 ## Initial Setup
