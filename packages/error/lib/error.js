@@ -9,8 +9,8 @@ module.exports = {
 function isError (value) {
   switch (Object.prototype.toString.call(value)) {
     case '[object Error]': return true
-    case '[object Exception]': return true
-    case '[object DOMException]': return true
+    // case '[object Exception]': return true
+    // case '[object DOMException]': return true
     default: return value instanceof Error
   }
 }
