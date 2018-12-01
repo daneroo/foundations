@@ -1,6 +1,8 @@
 {
   "name": "@daneroo/foundations",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "lerna": "^3.5.1",
     "jest": "^23.6.0",
