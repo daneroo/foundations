@@ -1,14 +1,17 @@
 # @daneroo/foundations
 
-
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
-Published at [@daneroo/foundations]()
-This is an attempt to group many re-usable components for several projects.
+Published at [@daneroo/foundations](https://github.com/daneroo/foundations)
 
-These are things that I need in many projects, such as logging, seting up express, etc.
+This is a personal experiment. You should have no expectations of long term viability or maintenance.
 
-This is an experiment in version management, dependency management and refactoring.
+This is an attempt to group re-usable components for several projects.
+
+These are modules that I need in many projects, such as logging, seting up express, etc.
+It is an experiment in version management, dependency management and refactoring.
+
+Discuss: `winston` and `morgan` are `devDependencies:` and a `peerDependencies` of `@daneroo/logger`
 
 ## TODO
 
@@ -50,13 +53,18 @@ npx lerna-wizard
 ```bash
 lerna add jest --dev
 lerna add standard --dev
+lerna add winston packages/logger --dev
 ```
 
 ## Adding a package
 
+After you create the package, add `scripts:`, `devDependencies:`, and `standrad:`
+sections to `package.json`
+
 ```bash
 lerna create <name> [loc]
 npx lerna create @daneroo/error error
+npx lerna create @daneroo/logger logger
 ```
 
 ## Initial Setup
