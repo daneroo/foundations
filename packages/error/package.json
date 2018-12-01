@@ -1,6 +1,6 @@
 {
   "name": "@daneroo/error",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect if an argument is an Error",
   "author": "Daniel Lauzon <daniel.lauzon@gmail.com>",
   "homepage": "https://github.com/daneroo/foundations#readme",
