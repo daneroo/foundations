@@ -75,8 +75,8 @@ describe('@daneroo/error', () => {
         expect(Object.keys(out)).toEqual(expect.arrayContaining(['name', 'message', 'stack']))
         expect(out).toEqual(expect.objectContaining({
           name: 'Error',
-          message: 'Bad!'
-        // stack: expect.stringMatching(/Error/)
+          message: 'Bad!',
+          stack: expect.stringMatching(/^Error: Bad!/)
         }))
         //   expect(out.stack).toEqual('Error')
         expect(out.stack).toEqual(expect.stringMatching(/^Error: Bad!/))

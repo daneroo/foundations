@@ -30,9 +30,9 @@ This is an experiment in version management, dependency management and refactori
 lerna bootstrap --hoist
 
 lerna run test
-lerna run test --since master
+lerna run test --stream  # get the verbose output
 
-lerna clean # rm node_modules
+lerna clean --yes # rm node_modules
 ```
 
 ## using the wizard
