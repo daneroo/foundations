@@ -1,5 +1,7 @@
 'use strict'
 
+// TODO(daneroo): Better idea wrap error with serializable wrapper error type
+
 module.exports = {
   isError,
   preSeraialize

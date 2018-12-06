@@ -1,11 +1,35 @@
 # `@daneroo/logger`
 
-> TODO: description
+Quick setup of of a winston logger, configured as I like it!
 
-## Usage
+## Usage - quick
 
 ```bash
-const logger = require('@daneroo/logger');
+const { log } = require('@daneroo/logger')
+log.info('Yo')
+```
 
-// TODO: DEMONSTRATE API
+## Usage - configured
+
+```bash
+const { createLogger } = require('@daneroo/logger')
+const log = createLogger({ color: true, level: 'debug', padded: true, local: true, short: true })
+
+log.info('Yo ho, with options')
+```
+
+## Usage - multiple transports
+
+```bash
+const winston = require('winston')
+const { transport } = require('@daneroo/logger')
+
+const log = winston.createLogger({
+  transports: [
+    transport.console({ color: true, level: 'debug', padded: true, local: false, short: false }),
+    new winston.transports.File({ filename: 'combined.log' })
+  ]
+})
+
+log.info('Yo ho, combined with other logger')
 ```

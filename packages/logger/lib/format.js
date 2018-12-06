@@ -1,7 +1,9 @@
 'use strict'
 
-// TODO(daneroo): move export back to top
-// TODO(daneroo): remove these external dependencies
+// exports declared at bottom because my functions (shortstamp, flat) are wrapped at declaration time as
+// const thingFormat = winston.format(((info,opts)=>{}))
+
+// TODO(daneroo): can I remove these external dependencies
 
 const jsonStringify = require('fast-safe-stringify') // add to dev and peer?
 const { format } = require('winston')
@@ -9,17 +11,41 @@ const { format } = require('winston')
 const MESSAGE = Symbol.for('message')
 const SPLAT = Symbol.for('splat')
 
+// This is what's meat to be used
+//  It combines all the fomatters
+function combo ({ color = true, padded = true, pretty = false, local = false, short = false } = {}) {
+  const combinedFormats = [
+    ...(color ? [format.colorize()] : []),
+    ...(padded ? [format.padLevels()] : []),
+    selectTimestampFormat({ short, local }),
+    flat({ padded, pretty })
+  ]
+  return format.combine(...combinedFormats)
+}
+
 // info.timestamp = T02:32:34.857Z
 const shortstamp = format((info, opts) => {
-  if (!info.timestamp) {
+  if (info && !info.timestamp) {
     info.timestamp = new Date().toISOString().slice(10) // T02:32:34.857Z
+    info.timestamp = 'T02:32:34.857Z'
   }
   return info
 })
 
+// this return one of 4 formatters
+function selectTimestampFormat ({ local = false, short = false } = {}) {
+  var timeformat = short
+    ? (local)
+      ? format.timestamp({ format: 'THH:mm:ss.SSSZZ' }) // short and local
+      : shortstamp() // short and UTC
+    : (local)
+      ? format.timestamp({ format: 'YYYY-MM-DDTHH:mm:ss.SSSZZ' }) // long and local
+      : format.timestamp() // long and UTC, default
+  return timeformat
+}
+
 // padded: indicates padLevels is used (and already has extra space before message)
-const flat = format((info, opts) => {
-  const { padded, pretty } = opts
+const flat = format((info, { padded = false, pretty = false } = {}) => {
   let { level, message, timestamp } = info
   const rest = info[SPLAT]
 
@@ -44,6 +70,7 @@ const flat = format((info, opts) => {
   return info
 })
 
+// Better idea wrap error with serializable wrapper error type
 //   TODO: apply isError and maybe preSerialize?
 // gets applied to all objects message and ...rest
 // if error: convert errors to useful string
@@ -60,9 +87,9 @@ function prettify (o) {
 }
 
 module.exports = {
-  format: {
-    shortstamp,
-    flat,
-    prettify
-  }
+  combo,
+  selectTimestampFormat,
+  shortstamp,
+  flat,
+  prettify
 }

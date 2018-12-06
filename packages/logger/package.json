@@ -1,11 +1,11 @@
 {
   "name": "@daneroo/logger",
   "version": "1.0.4",
-  "description": "Group of common patterns usefule with winston/morgan logging",
+  "description": "Group of common patterns for logging with winston/morgan",
   "author": "Daniel Lauzon <daniel.lauzon@gmail.com>",
   "homepage": "https://github.com/daneroo/foundations#readme",
   "license": "ISC",
-  "main": "lib/logger.js",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

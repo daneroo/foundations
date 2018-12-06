@@ -1,6 +1,6 @@
 'use strict'
 
-const { flat, shortstamp, prettify } = require('..').format
+const { flat, shortstamp, selectTimestampFormat, prettify } = require('..').format
 
 // const { MESSAGE } = require('triple-beam')
 const MESSAGE = Symbol.for('message')
@@ -85,6 +85,27 @@ describe('@daneroo/logger', () => {
         message: 'whatever',
         // T04:20:40.157Z
         'timestamp': expect.stringMatching(/^T\d\d:\d\d:\d\d\.\d\d\dZ$/)
+      })
+    })
+  })
+
+  describe('selectTimestampFormat', () => {
+    test.each([
+      // [name, input , expected],
+      ['long UTC', { short: false, local: false }, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/],
+      ['short UTC', { short: true, local: false }, /^T\d{2}:\d{2}:\d{2}\.\d{3}Z$/],
+      ['long localtime', { short: false, local: true }, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}[+-]\d{4}$/],
+      ['short localtime', { short: true, local: true }, /^T\d{2}:\d{2}:\d{2}\.\d{3}[+-]\d{4}$/]
+    ])('%s', (name, opts, expected) => {
+      const info = invoke(
+        selectTimestampFormat(opts),
+        { level: 'info', message: 'whatever' }
+      )
+      expect(info).toEqual({
+        level: 'info',
+        message: 'whatever',
+        // T04:20:40.157Z... etc
+        'timestamp': expect.stringMatching(expected)
       })
     })
   })
