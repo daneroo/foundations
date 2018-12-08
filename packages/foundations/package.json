@@ -22,7 +22,7 @@
     "url": "git+https://github.com/daneroo/foundations.git"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "./index.js",
     "test": "npm run lint && npm run unit",
     "lint": "standard",
     "unit": "jest",
