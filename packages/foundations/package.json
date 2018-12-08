@@ -6,6 +6,7 @@
   "homepage": "https://github.com/daneroo/foundations#readme",
   "license": "ISC",
   "main": "lib/foundations.js",
+  "bin": "./index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
