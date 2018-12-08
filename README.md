@@ -33,8 +33,12 @@ Discuss: `winston` and `morgan` are `devDependencies:` and a `peerDependencies` 
 npm i lerna -g ## or prepend commands with npx
 lerna bootstrap --hoist
 
+npm test  # or
 lerna run test
-lerna run test --concurrency 1 --stream # get the verbose output
+
+# to see verbose test output
+npm run test -- --concurrency 1 --stream  # or
+lerna run test --concurrency 1 --stream
 
 # make your commits and push...
 
