@@ -10,7 +10,7 @@
   },
   "scripts": {
     "clean":"lerna clean --yes && find packages -name coverage",
-    "unit":"lerna run unit --stream  -- -- --verbose",
+    "unit":"lerna run unit --concurrency 1 --stream",
     "test": "lerna run test"
   },
   "standard": {
