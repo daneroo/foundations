@@ -1,1 +1,3 @@
-const foundations = require('.')
+const { start } = require('./lib/foundations')
+
+start()
