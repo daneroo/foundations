@@ -5,6 +5,10 @@ These two functions are meant to be used in the context of logging errors.
 - `isError`: Detects if an argument is an Error
 - `preSerialize`: Creates a `JSON.stringify`able object if argument is an error, otherwise returns the argument unmodified. This is because `Error`s produce only `{}` through JSON.stringify.
 
+## TODO
+
+- see [serialize-error](https://github.com/sindresorhus/serialize-error)
+
 ## Usage
 
 ```bash

@@ -2,6 +2,11 @@
 
 Quick setup of of a winston logger, configured as I like it!
 
+## TODO
+
+- see [gajus/roarr](https://github.com/gajus/roarr) for discussion.
+- determine usage patterns (in code)
+
 ## Usage - quick
 
 ```bash

@@ -30,10 +30,11 @@ Discuss: `winston` and `morgan` are `devDependencies:` and a `peerDependencies` 
 ## Operations
 
 ```bash
+npm i lerna -g ## or prepend commands with npx
 lerna bootstrap --hoist
 
 lerna run test
-lerna run test --stream  # get the verbose output
+lerna run test --concurrency 1 --stream # get the verbose output
 
 lerna publish
 lerna version # interactive
