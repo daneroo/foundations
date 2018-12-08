@@ -36,7 +36,12 @@ lerna bootstrap --hoist
 lerna run test
 lerna run test --concurrency 1 --stream # get the verbose output
 
+# make your commits and push...
+
+npm login # you may have to login to npm
 lerna publish
+
+# less typical
 lerna version # interactive
 lerna minor # [major | minor | patch | premajor | preminor | prepatch | prerelease]
 
