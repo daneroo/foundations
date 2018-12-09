@@ -4,8 +4,10 @@ Quick setup of of a winston logger, configured as I like it!
 
 ## TODO
 
-- see [gajus/roarr](https://github.com/gajus/roarr) for discussion.
-- determine usage patterns (in code)
+- Determine usage patterns (in code)
+- See [gajus/roarr](https://github.com/gajus/roarr) for discussion.
+- Request Logging
+  - dev/peer dependancy on `morgan`/`morgan-json`
 
 ## Usage - quick
 

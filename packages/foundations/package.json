@@ -40,5 +40,8 @@
     "env": {
       "jest": true
     }
+  },
+  "dependencies": {
+    "@daneroo/logger": "^1.0.6"
   }
 }

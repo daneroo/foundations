@@ -24,13 +24,17 @@ Discuss: `winston` and `morgan` are `devDependencies:` and a `peerDependencies` 
 
 ## packages/components
 
-- iserror: Detect if an argument is an Error
-- consolify: utility method for serializing argument for logging
+- singleton: wrapper for components that follow a singleton pattern
+- config: kv store, with defaults, and wrapped in a singleton
+- server: http components (express and graphql)
+- logger: logging components
+  - error: error handling (for logging)
+- foundations: working example of the other components
 
 ## Operations
 
 ```bash
-npm i lerna -g ## or prepend commands with npx
+npm i lerna -g ## or prepend lerna commands with npx
 lerna bootstrap --hoist
 
 npm test  # or
@@ -52,29 +56,30 @@ lerna minor # [major | minor | patch | premajor | preminor | prepatch | prerelea
 lerna clean --yes # rm node_modules
 ```
 
-## using the wizard
-
-```bash
-npx lerna-wizard
-```
-
-## Adding a share dev dependancy
-
-```bash
-lerna add jest --dev
-lerna add standard --dev
-lerna add winston packages/logger --dev
-```
-
-## Adding a package
+## Creating a new package
 
 After you create the package, add `scripts:`, `devDependencies:`, and `standrad:`
 sections to `package.json`
 
 ```bash
 lerna create <name> [loc]
-npx lerna create @daneroo/error error
-npx lerna create @daneroo/logger logger
+lerna create @daneroo/error error
+lerna create @daneroo/logger logger
+# and add common devDeps as below
+```
+
+## Adding (shared) dev dependancies
+
+If it is a peerDependancy, add by hand, and add as a devdependancy
+
+```bash
+lerna add jest --dev
+lerna add standard --dev
+
+# single package - not shared
+lerna add winston packages/logger --dev
+lerna add express packages/server --dev
+# tyhen add as peerD
 ```
 
 ## Initial Setup
