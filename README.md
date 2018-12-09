@@ -21,11 +21,14 @@ Discuss: `winston` and `morgan` are `devDependencies:` and a `peerDependencies` 
   - [Discussion](https://glebbahmutov.com/blog/renovate-app/)
   - [GreenKeeper](https://greenkeeper.io/)
   - [Renovate](https://renovatebot.com/)
+- [Metrics](https://github.com/gajus/iapetus)
 
 ## packages/components
 
 - singleton: wrapper for components that follow a singleton pattern
 - config: kv store, with defaults, and wrapped in a singleton
+  - see: https://github.com/lorenwest/node-config
+  - see: https://github.com/dominictarr/rc
 - server: http components (express and graphql)
 - logger: logging components
   - error: error handling (for logging)
