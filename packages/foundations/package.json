@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@daneroo/logger": "^1.0.12",
-    "fast-safe-stringify": "^2.0.6"
+    "fast-safe-stringify": "^2.0.6",
+    "winston": "^3.1.0"
   }
 }
