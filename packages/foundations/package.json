@@ -1,6 +1,6 @@
 {
   "name": "@daneroo/foundations",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Demo for the different parts of this library set",
   "author": "Daniel Lauzon <daniel.lauzon@gmail.com>",
   "homepage": "https://github.com/daneroo/foundations#readme",
@@ -42,6 +42,6 @@
     }
   },
   "dependencies": {
-    "@daneroo/logger": "^1.0.6"
+    "@daneroo/logger": "^1.0.12"
   }
 }
