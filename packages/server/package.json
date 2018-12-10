@@ -1,6 +1,6 @@
 {
   "name": "@daneroo/server",
-  "version": "1.0.11",
+  "version": "1.0.15",
   "description": "Building blocks for http server (express and graphql)",
   "author": "Daniel Lauzon <daniel.lauzon@gmail.com>",
   "homepage": "https://github.com/daneroo/foundations#readme",
