@@ -1,6 +1,6 @@
 {
   "name": "@daneroo/server",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Building blocks for http server (express and graphql)",
   "author": "Daniel Lauzon <daniel.lauzon@gmail.com>",
   "homepage": "https://github.com/daneroo/foundations#readme",
@@ -33,7 +33,7 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "@daneroo/logger": "^1.0.12",
+    "@daneroo/logger": "^1.0.16",
     "express": "^4.16.4",
     "jest": "^23.6.0",
     "morgan": "^1.9.1",
