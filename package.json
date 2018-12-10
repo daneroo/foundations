@@ -9,7 +9,7 @@
     "standard": "^12.0.1"
   },
   "scripts": {
-    "clean":"lerna clean --yes && find packages -name coverage",
+    "clean":"lerna clean --yes && echo now you can: rm -rf $(find packages -name coverage)",
     "unit":"lerna run unit --concurrency 1 --stream",
     "test": "lerna run test"
   },

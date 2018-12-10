@@ -15,20 +15,30 @@ Discuss: `winston` and `morgan` are `devDependencies:` and a `peerDependencies` 
 
 ## TODO
 
-- Common devDeps
+- Config
+  - [node-config](https://github.com/lorenwest/node-config)
+    - [Sub-Modules](https://github.com/lorenwest/node-config/wiki/Sub-Module-Configuration)
+  - [dominictarr/rc](https://github.com/dominictarr/rc)
 - Dependancy management (automated)
   - [See also](https://github.com/semantic-release/semantic-release)
   - [Discussion](https://glebbahmutov.com/blog/renovate-app/)
   - [GreenKeeper](https://greenkeeper.io/)
   - [Renovate](https://renovatebot.com/)
+- Coverage tracking CI/CD
+  - [Monorepo coverage with lerna](https://codeburst.io/monorepos-by-example-part-2-4153712cfa31)
+  - [Covertalls.io](https://coveralls.io/)
+  - [Codecov.io](https://codecov.io/)
+- [Logging]
+  - [gajus/roarr](https://github.com/gajus/roarr)
+  - Request Logging:  dev/peer dependancy on `morgan`/`morgan-json`
+
+- [/health & SIGTERM](https://github.com/gajus/lightship)
 - [Metrics](https://github.com/gajus/iapetus)
 
 ## packages/components
 
 - singleton: wrapper for components that follow a singleton pattern
 - config: kv store, with defaults, and wrapped in a singleton
-  - see: https://github.com/lorenwest/node-config
-  - see: https://github.com/dominictarr/rc
 - server: http components (express and graphql)
 - logger: logging components
   - error: error handling (for logging)
