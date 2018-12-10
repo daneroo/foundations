@@ -3,8 +3,8 @@
 const foundations = require('..')
 
 describe('@daneroo/foundations', () => {
-  it('invokes the main function', () => {
-    foundations.start()
+  it('invokes the start function', async () => {
+    await foundations.start()
     expect(1).toEqual(1)
   })
 })

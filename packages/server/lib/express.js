@@ -34,7 +34,7 @@ function newServer (/* config */) {
 const singleton = newServer()
 
 // should be a method of (newServer), but don;t want any Objects or classes...
-function start () {
+async function start () {
   // get the singleton, so we can stop()...
   const { app, server } = singleton
 
@@ -51,12 +51,15 @@ function start () {
   // https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
   // Lightship https://github.com/gajus/lightship
 
-  server.listen(config.express.port, function (error) {
-    if (error) {
-      log.error(error)
-      return
-    }
-    log.info(`Express server listening on port *:${config.express.port}`)
+  return new Promise((resolve, reject) => {
+    server.listen(config.express.port, function (error) {
+      if (error) {
+        log.error(error)
+        reject(error)
+      }
+      log.info(`Express server listening on port *:${config.express.port}`)
+      resolve()
+    })
   })
 }
 function stop () {

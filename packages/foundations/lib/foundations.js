@@ -12,9 +12,9 @@ async function start () {
   console.log(`Hello @daneroo/foundations v${version}`)
   log.info('I am now using logging from @daneroo/logger')
   log.info('Starting an express server from @daneroo/server.express')
-  express.start()
+  await express.start()
   log.info('Stopping the express server')
-  await delay(10000)
+  await delay(1000)
   express.stop()
   log.info('Stopped the express server')
 }
