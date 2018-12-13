@@ -15,6 +15,7 @@ Discuss: `winston` and `morgan` are `devDependencies:` and a `peerDependencies` 
 
 ## TODO
 
+- [Integration testing](http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/)
 - Config
   - [node-config](https://github.com/lorenwest/node-config)
     - [Sub-Modules](https://github.com/lorenwest/node-config/wiki/Sub-Module-Configuration)

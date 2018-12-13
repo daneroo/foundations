@@ -3,7 +3,12 @@
 module.exports = {
   start,
   stop,
-  newServer
+  newServer,
+  defaultRouter,
+  slashHandler,
+  versionHandler,
+  healthHandler,
+  randomHealthHandler
 }
 
 // TODO(daneroo): proper error handling: https://github.com/B1naryStudio/express-api-response
@@ -18,6 +23,7 @@ const { log } = require('@daneroo/logger')
 
 // User global config singleton
 const config = {
+  version: '1.0.16',
   express: {
     port: 7000
   }
@@ -106,23 +112,32 @@ function defaultRouter (/* config */) {
   // })
 
   // define the home page route
-  router.get('/', function (req, res) {
-    res.json({ you: 'Home', status: 'OK', stamp: new Date().toISOString() })
-  })
-
-  router.get('/version', function (req, res) {
-    res.json(config.version)
-  })
-  router.get('/health', function (req, res) {
-    const stamp = new Date().toISOString()
-    const randomFailure = Math.random() < 0.01
-    // chose 503, 4xx are client errors, and 503 is implicitly temporary
-    if (randomFailure) {
-      res.status(503).json({ error: 'randomly not healthy', status: 'ERROR', stamp })
-    } else {
-      res.json({ status: 'OK', stamp })
-    }
-  })
+  router.get('/', slashHandler)
+  router.get('/version', versionHandler)
+  router.get('/health', healthHandler)
 
   return router
+}
+
+function slashHandler (req, res) {
+  res.json({ you: 'Home', status: 'OK', stamp: new Date().toISOString() })
+}
+function versionHandler (req, res) {
+  res.json(config.version)
+}
+
+function healthHandler (req, res) {
+  const stamp = new Date().toISOString()
+  res.json({ status: 'OK', stamp })
+}
+
+function randomHealthHandler (req, res) {
+  const stamp = new Date().toISOString()
+  const randomFailure = Math.random() < 0.01
+  // chose 503, 4xx are client errors, and 503 is implicitly temporary
+  if (randomFailure) {
+    res.status(503).json({ error: 'randomly not healthy', status: 'ERROR', stamp })
+  } else {
+    res.json({ status: 'OK', stamp })
+  }
 }
